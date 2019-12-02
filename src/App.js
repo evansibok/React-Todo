@@ -34,6 +34,10 @@ class App extends React.Component {
 
   addTodo(evt) {
     evt.preventDefault();
+    this.setState({
+      todos: [...this.state.todos, this.state.initialTodo],
+    })
+    this.state.initialTodo.reset();
   }
 
 
