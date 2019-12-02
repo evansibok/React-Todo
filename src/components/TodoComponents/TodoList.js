@@ -3,12 +3,16 @@
 import React, { Component } from 'react'
 
 export default class TodoList extends Component {
-
 	render() {
 		return (
 			<div>
 				{
-					this.props.todos.map(t => (<p key={t.id}>{t.task}</p>))
+					this.props.todos.map(t => (
+						<p key={t.id}>
+							{t.task}
+						</p>
+					)
+					)
 				}
 			</div>
 		)

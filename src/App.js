@@ -22,7 +22,6 @@ class App extends React.Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.addTodo = this.addTodo.bind(this);
-    this.toggleComplete = this.toggleComplete.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
   }
 
@@ -45,14 +44,7 @@ class App extends React.Component {
     })
   }
 
-  toggleComplete(evt, id) {
-    // this.state.todos.id 
-  }
-
-
   deleteTodo(id, completed) {
-    // this.state.todos.id && this.state.todos.completed === true;
-    // if(this.state.todos.id) 
 
   }
 
@@ -71,7 +63,6 @@ class App extends React.Component {
 
         <TodoList
           todos={todos}
-          toggleComplete={this.toggleComplete}
         />
         <TodoForm
           initialTodo={initialTodo}
