@@ -22,6 +22,8 @@ class App extends React.Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.addTodo = this.addTodo.bind(this);
+    this.toggleComplete = this.toggleComplete.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   onInputChange(evt) {
@@ -34,10 +36,24 @@ class App extends React.Component {
 
   addTodo(evt) {
     evt.preventDefault();
+    const newTodo = {
+      task: this.state.initialTodo.task,
+      id: Date.now(),
+    }
     this.setState({
-      todos: [...this.state.todos, this.state.initialTodo],
+      todos: [...this.state.todos, newTodo],
     })
-    this.state.initialTodo.reset();
+  }
+
+  toggleComplete(evt, id) {
+    // this.state.todos.id 
+  }
+
+
+  deleteTodo(id, completed) {
+    // this.state.todos.id && this.state.todos.completed === true;
+    // if(this.state.todos.id) 
+
   }
 
 
@@ -48,18 +64,20 @@ class App extends React.Component {
         <h2>Welcome to your Todo App!</h2>
 
         {/* Submit Button */}
-        add Submit handler to add button
+        reset state after submission
 
         {/* 'Clear all' Button */}
         add Delete handler to clear all button
 
         <TodoList
           todos={todos}
+          toggleComplete={this.toggleComplete}
         />
         <TodoForm
           initialTodo={initialTodo}
           onInputChange={this.onInputChange}
           addTodo={this.addTodo}
+          deleteTodo={this.deleteTodo}
         />
       </div>
     );

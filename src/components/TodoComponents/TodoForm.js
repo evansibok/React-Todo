@@ -12,7 +12,8 @@ export default class TodoForm extends Component {
 					onChange={this.props.onInputChange}
 				/>
 				{` `}
-				<button onClick={this.props.addTodo}>Add Todo</button>
+				<button onClick={this.props.addTodo} >Add Todo</button>
+
 				{` `}
 				<button>Clear all</button>
 			</div>
