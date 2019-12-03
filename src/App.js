@@ -1,6 +1,5 @@
 import React from 'react';
 
-import data from './components/TodoComponents/Todo'
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
 
@@ -12,7 +11,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      todos: data,
+      todos: [],
     }
 
     this.deleteTodo = this.deleteTodo.bind(this);
@@ -24,6 +23,10 @@ class App extends React.Component {
     this.setState({
       todos: [...this.state.todos, todo],
     })
+  }
+
+  toggleCompleted = () => {
+
   }
 
   deleteTodo(id, completed) {

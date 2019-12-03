@@ -8,7 +8,7 @@ export default class TodoForm extends Component {
 
 	onInputChange = (evt) => {
 		this.setState({
-			text: evt.target.value,
+			[evt.target.name]: evt.target.value,
 		})
 	}
 
@@ -18,6 +18,9 @@ export default class TodoForm extends Component {
 			task: this.state.text,
 			id: Date.now(),
 			complete: false,
+		});
+		this.setState({
+			text: "",
 		})
 	}
 
