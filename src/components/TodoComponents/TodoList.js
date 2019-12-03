@@ -15,6 +15,7 @@ export default class TodoList extends Component {
 							key={todo.id}
 							todo={todo}
 							toggleComplete={() => this.props.toggleComplete(todo.id)}
+							clearComplete={this.props.clearComplete}
 						/>
 					)
 					)

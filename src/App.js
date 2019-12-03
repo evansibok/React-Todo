@@ -38,9 +38,15 @@ class App extends React.Component {
     })
   }
 
-  // deleteTodo(id, completed) {
+  clearComplete = (evt) => {
+    evt.preventDefault();
+    let allTodos = this.state.todos;
+    let filteredTodos = allTodos.filter((currentTodo) => {
+      return currentTodo.complete === false;
+    })
+    this.setState({ todos: filteredTodos })
+  }
 
-  // }
 
 
   render() {
@@ -49,11 +55,6 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
 
-        Toggle Complete for each todo
-
-        {/* 'Clear all' Button */}
-        add Delete handler to clear all button
-
         <TodoList
           todos={todos}
           toggleComplete={this.toggleComplete}
@@ -61,7 +62,7 @@ class App extends React.Component {
         <TodoForm
           todos={todos}
           addTodo={this.addTodo}
-          deleteTodo={this.deleteTodo}
+          clearComplete={this.clearComplete}
         />
       </div>
     );
