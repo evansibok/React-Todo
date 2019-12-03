@@ -21,7 +21,7 @@ export default class TodoForm extends Component {
 		});
 		this.setState({
 			text: "",
-		})
+		});
 	}
 
 	render() {

@@ -13,8 +13,6 @@ class App extends React.Component {
     this.state = {
       todos: [],
     }
-
-    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
 
@@ -25,13 +23,24 @@ class App extends React.Component {
     })
   }
 
-  toggleCompleted = () => {
-
+  toggleComplete = (id) => {
+    this.setState({
+      todos: this.state.todos.map(t => {
+        if (t.id === id) {
+          return {
+            ...t,
+            complete: !t.complete,
+          }
+        } else {
+          return t;
+        }
+      })
+    })
   }
 
-  deleteTodo(id, completed) {
+  // deleteTodo(id, completed) {
 
-  }
+  // }
 
 
   render() {
@@ -40,14 +49,14 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
 
-        {/* Submit Button */}
-        reset state after submission
+        Toggle Complete for each todo
 
         {/* 'Clear all' Button */}
         add Delete handler to clear all button
 
         <TodoList
           todos={todos}
+          toggleComplete={this.toggleComplete}
         />
         <TodoForm
           todos={todos}
