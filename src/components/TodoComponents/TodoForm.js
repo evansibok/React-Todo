@@ -14,14 +14,16 @@ export default class TodoForm extends Component {
 
 	handleSubmit = (evt) => {
 		evt.preventDefault();
-		this.props.addTodo({
-			task: this.state.text,
-			id: Date.now(),
-			complete: false,
-		});
-		this.setState({
-			text: "",
-		});
+		if (this.state.text) {
+			this.props.addTodo({
+				task: this.state.text,
+				id: Date.now(),
+				complete: false,
+			});
+			this.setState({
+				text: "",
+			});
+		}
 	}
 
 	render() {
