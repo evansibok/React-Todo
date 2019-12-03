@@ -15,21 +15,14 @@ class App extends React.Component {
       todos: data,
     }
 
-    this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
   }
 
 
 
-  addTodo(evt) {
-    evt.preventDefault();
-    const newTodo = {
-      task: this.state.initialTodo.task,
-      id: Date.now(),
-      complete: false,
-    }
+  addTodo = (todo) => {
     this.setState({
-      todos: [...this.state.todos, newTodo],
+      todos: [...this.state.todos, todo],
     })
   }
 

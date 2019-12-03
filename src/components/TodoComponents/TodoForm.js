@@ -12,6 +12,15 @@ export default class TodoForm extends Component {
 		})
 	}
 
+	handleSubmit = (evt) => {
+		evt.preventDefault();
+		this.props.addTodo({
+			task: this.state.text,
+			id: Date.now(),
+			complete: false,
+		})
+	}
+
 	render() {
 		return (
 			<div>
@@ -19,11 +28,12 @@ export default class TodoForm extends Component {
 					<input
 						type="text"
 						placeholder="...todo"
+						name="text"
 						value={this.state.text}
 						onChange={this.onInputChange}
 					/>
 					{` `}
-					<button onClick={this.props.addTodo} >Add Todo</button>
+					<button onClick={this.handleSubmit} >Add Todo</button>
 					{` `}
 					<button>Clear all</button>
 				</form>
