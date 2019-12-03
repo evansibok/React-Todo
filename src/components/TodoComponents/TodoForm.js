@@ -19,7 +19,6 @@ export default class TodoForm extends Component {
 					<input
 						type="text"
 						placeholder="...todo"
-						name="enter_todo"
 						value={this.state.text}
 						onChange={this.onInputChange}
 					/>
