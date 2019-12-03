@@ -13,31 +13,20 @@ class App extends React.Component {
 
     this.state = {
       todos: data,
-      initialTodo: {
-        task: '',
-        id: Date.now(),
-        completed: false,
-      }
     }
 
-    this.onInputChange = this.onInputChange.bind(this);
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
   }
 
-  onInputChange(evt) {
-    this.setState({
-      initialTodo: {
-        task: evt.target.value,
-      }
-    });
-  }
+
 
   addTodo(evt) {
     evt.preventDefault();
     const newTodo = {
       task: this.state.initialTodo.task,
       id: Date.now(),
+      complete: false,
     }
     this.setState({
       todos: [...this.state.todos, newTodo],
@@ -50,7 +39,7 @@ class App extends React.Component {
 
 
   render() {
-    const { todos, initialTodo } = this.state;
+    const { todos } = this.state;
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
@@ -65,8 +54,7 @@ class App extends React.Component {
           todos={todos}
         />
         <TodoForm
-          initialTodo={initialTodo}
-          onInputChange={this.onInputChange}
+          todos={todos}
           addTodo={this.addTodo}
           deleteTodo={this.deleteTodo}
         />
